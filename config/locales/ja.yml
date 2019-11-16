@@ -3,6 +3,7 @@ ja:
   activerecord:
     errors:
       messages:
+
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
@@ -17,7 +18,6 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +43,6 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    -
     - 1月
     - 2月
     - 3月
@@ -75,6 +74,7 @@ ja:
         one: 1年弱
         other: "%{count}年弱"
       half_a_minute: 30秒前後
+
       less_than_x_minutes:
         one: 1分以内
         other: "%{count}分未満"
