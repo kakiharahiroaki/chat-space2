@@ -3,19 +3,20 @@
     .side-header
       .side-header__box
         %p.side-header__box__user-name 
-          = current_user.name
+          kakihara
         %ul.side-header__box__menu
           %li.side-header__box__menu__new-group
-            =link_to "new_group_path" do
+            =link_to new_group_path do
               = icon('far','edit')
       
           %li.side-header__box__menu__edit-user
             =link_to "/users/#{current_user.id}/edit" do
               = icon('fas','cog')
     .groups
-    .group
-      .group__name
-        グループ名
-      .group__message
-        新着メッセージ
-    
+      - current_user.groups.each do |group|
+        .group
+          = link_to group_messages_path(group) do
+            .group__name
+              = group.name
+            .group__message
+              メッセージはまだありません。
