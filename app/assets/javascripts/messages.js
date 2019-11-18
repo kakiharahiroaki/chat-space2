@@ -3,16 +3,16 @@ $(function(){
       var content = message.content ? `<p class="lower-message__content">${message.content}</p>` : "";
       var image = message.image ? `<img class="lower-message__image" src="${message.image}">` : "";
   
-      var html = `<div class="message" data-id=${message.id}>
-                  <div class="upper-message">
-                  <div class="upper-message__user-name">
+      var html = `<div class = "message" data-id = ${message.id}>
+                  <div class ="upper-message">
+                  <div class ="upper-message__user-name">
                   ${message.user_name}
                   </div>
-                  <div class="upper-message__date">
+                  <div class ="upper-message__date">
                   ${message.created_at}
                   </div>
                   </div>
-                  <div class="lower-message">
+                  <div class ="lower-message">
                   ${content}
                   ${image}
                   </div>
