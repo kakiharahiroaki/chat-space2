@@ -19,7 +19,34 @@ $(function(){
                   </div>`
       return html;
     }
-  
+
+
+   var reloadMessages = function() {
+      last_message_id = $('.message:last').data('id');
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+
+      .done(function(messages) {
+        var insertHTML = '';
+      messages.forEach(function(message){
+
+        if(message.id > last_message_id){
+        insertHTML += buildHTML(message);
+        }
+      })
+      $('.messages').append(insertHTML);
+      var height = $('.messages')[0].scrollHeight;
+      $('.messages').animate({scrollTop: height}, 500, 'swing');
+      })
+      .fail(function() {
+        alert('reloadMessageError');
+      });
+    };
+
   $('#new_message').on('submit', function(e){
     // console.logを用いてイベント発火しているか確認
     e.preventDefault();
@@ -44,5 +71,11 @@ $(function(){
     .fail(function() {
       alert('reloadMessageError');
     });
+  });
+  
+  $(window).on('load',function(){
+    if(document.URL.match("messages")) {
+      setInterval(reloadMessages, 5000);
+    }
   });
 });
