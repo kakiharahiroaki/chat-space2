@@ -21,7 +21,7 @@ $(function(){
     }
 
 
-    reloadMessages = function() {
+   var reloadMessages = function() {
       last_message_id = $('.message:last').data('id');
       console.log(last_message_id);
       $.ajax({
@@ -44,7 +44,7 @@ $(function(){
       $('.messages').animate({scrollTop: height}, 500, 'swing');
       })
       .fail(function() {
-        console.log('error');
+        alert('reloadMessageError');
       });
     };
 
